@@ -85,8 +85,11 @@ def code_file():
         if file.filename == '':
             flash('No file was selected', category='error')
             return render_template("home.html", user=current_user)
+
+        
+
             
-        if allowed_file(file.filename) == false:
+        if file and not allowed_file(file.filename):
             flash('Wrong file type', category='error')
             return redirect(request.url)
 
