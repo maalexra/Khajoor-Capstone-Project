@@ -53,13 +53,13 @@ def send_mail():
             flash('Sorry, one of the fields was empty', category='error')
             return redirect(request.url)
 
-        message = f"<h3>New Idea Submission</h3><ul><li>Customer: {contact_name} </li><li>Email: {contact_email} </li><li>Customer: {contact_message} </li></ul>"
+        message = f"<h3>New Idea Submission</h3><ul><li>Customer: {contact_name} </li><li>Email: {contact_email} </li><li>Message: {contact_message} </li></ul>"
         
         sender_email = contact_email
         receiver_email = "email@example.com"
         msg = MIMEText(message, 'html')
         msg['Subject'] = "New Project Idea"
-        msg['Froms'] = sender_email
+        msg['From'] = sender_email
         msg['To'] = receiver_email
 
         #send email
